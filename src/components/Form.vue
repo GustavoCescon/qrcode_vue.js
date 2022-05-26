@@ -5,11 +5,11 @@
         <GeradorQr :msg='nome' v-show="status"/>
       </div>
       <div class="form">
-          <input type="text" id="inputForm" v-model="nome">
+          <input type="text" id="inputForm" v-model="nome" placeholder="Digite o conteúdo">
       </div>
       <div class="tituloCard">
-        <h1><strong>Gere seu <a href="">Qrcode</a></strong></h1>
-        <h2>Ao digitar o qr code é gerado automaticamente</h2>
+        <h1><strong>Gere seu <a target="_blank" v-bind:href="url">Qrcode</a></strong></h1>
+        <h2>Ao digitar o <a target="_blank" v-bind:href="url">Qrcode</a> é gerado automaticamente</h2>
       </div>
   </div>
 </div>
@@ -25,6 +25,7 @@
     data(){
       return{
         nome: '',
+        url: "https://www.npmjs.com/package/qrcode.vue",
         status: true
       }
     },
@@ -42,7 +43,6 @@
   .container{
     width: 100vw;
     height: 100vh;
-    background: #6C7A89;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -52,10 +52,11 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    width: 30em;
-    color: black;
-    border-radius: .3em;
+    width: 25em;
+    color: #151626;
     padding: 2em;
+    border-top: 8px solid #4169e1;
+    border-radius: 3px 3px 3px 3px;
   }
   .qrcode{
     flex: 1;
@@ -67,11 +68,14 @@
   .tituloCard h1{
     font-family: Helvetica;
     -webkit-font-smoothing: antialiased;
-    color: #2c3e50;
     text-align: center;
     font-weight: 600;
     line-height: 1.25;
     margin-top: 1em;
+  }
+  .tituloCard h1 a, .tituloCard h2 a{
+    color: #4169e1;
+    text-decoration: none;
   }
   .tituloCard h2{
     font-family: Helvetica;
@@ -80,17 +84,26 @@
     max-width: 35rem;
     font-size: 1em;
     line-height: 1.3;
-    color: #6a8bad;
     margin-top: 1em;
+    opacity: 0.7;
   }
   .form{
       flex: 1;
-      background-color: white;
       display: flex;
       flex-direction: column;
   }
   #inputForm{
     padding: .6em;
     font-size: 1em;
+    border: none;
+    border-bottom: 2px solid #151626;
+    cursor: pointer;
+    margin-top: 2em;
+    background-color: transparent;
+
+  }
+  #inputForm:focus{
+    border-bottom: 2px solid #151626;
+    outline: 0;
   }
 </style>

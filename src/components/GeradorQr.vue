@@ -1,6 +1,6 @@
 <template>
 <div class="qrCode">
-  <qrcode-vue :value="msg" :size="size" level="H"/>
+  <qrcode-vue :value="msg" :size="size" level="H" background="#FFF" foreground="#4169e1"/>
 </div>
   
 </template>
@@ -29,5 +29,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: .6em ;
+
   }
 </style>
